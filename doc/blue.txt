@@ -1,0 +1,8 @@
+//blue.txt
+blueprint for prism.
+Hold any ideas, and also function as a TODO list.
+Currently placeholder for github repo.
+
+*************** IDEAS *************** 
+
+*************** TODO ***************
