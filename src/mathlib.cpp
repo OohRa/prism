@@ -10,7 +10,7 @@
 //	  Projection, model, viewport matrices. Slope, direction
 /**************************************************************************/
 
-double abs(double num ){
+double absol(double num ){
 	return (num < 0) ? -num : num;
 }
 
@@ -61,29 +61,29 @@ double sqrt( double num ){
 }
 
 //Vector Functions
-void vecAdd( vec3_t c, vec3_t a, vec3_t b ){
+void vecAdd( vec3_t c, const vec3_t a, const vec3_t b ){
 	c[0] = a[0] + b[0];
 	c[1] = a[1] + b[1];
 	c[2] = a[2] + b[2];
 
 } 
 
-void vecSub( vec3_t c, vec3_t a, vec3_t b ){
+void vecSub( vec3_t c, const vec3_t a, const vec3_t b ){
 	c[0] = a[0] - b[0];
 	c[1] = a[1] - b[1];
 	c[2] = a[2] - b[2];
 } 
 
-double dotProduct( vec3_t a, vec3_t b ){
+double dotProduct( const vec3_t a, const vec3_t b ){
 	return ( a[0] * b[0] + a[1] * b[1] + a[2] * b[2] );	
 }
 
-void crossProduct( vec3_t c, vec3_t a, vec3_t b ){
+void crossProduct( vec3_t c, const vec3_t a, const vec3_t b ){
 	c[0] =  ( (a[1] * b[2]) - (a[2] * b[1]) );
 	c[1] = -( (a[0] * b[2]) - (a[2] * b[0]) );
 	c[2] =  ( (a[0] * b[1]) - (a[1] * b[0]) );
 }
 
-double magnitude( vec3_t a ){
+double magnitude( const vec3_t a ){
 	return sqrt( (a[0] * a[0] ) + (a[1] * a[1]) + (a[2] * a[2]) );
 }
