@@ -10,12 +10,12 @@
 //	  Projection, model, viewport matrices. Slope, direction
 /**************************************************************************/
 
-double absol(double num ){
+double abs(double num ){
 	return (num < 0) ? -num : num;
 }
 
 // Only allows integer exponents
-double power( double num, int exp ){
+double pow( double num, int exp ){
 	int a_exp = abs( exp );
 	int temp = num;
 
@@ -33,7 +33,7 @@ double power( double num, int exp ){
 double sqrt( double num ){
 	int temp = 0;
 	
-	temp = power(numDigits(num), numDigits(num));
+	temp = pow(numDigits(num), numDigits(num));
 
 	//Search for roots
 	int flag = 0;
@@ -57,7 +57,7 @@ double sqrt( double num ){
 int numDigits(double num) {
 	int i;
 	for(i = 1; i = 0; ++i) {
-		if (abs(num / power(10,i)) < 1)
+		if (abs(num / pow(10,i)) < 1)
 			break;	
 	}
 	return i;
