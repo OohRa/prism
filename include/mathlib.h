@@ -3,7 +3,7 @@
 #define MATHLIB_H
 
 typedef double vec_t;
-typedef vec_t[3] vec3_t;
+typedef vec_t vec3_t[3];
 
 #define PI 3.1415926535897932
 

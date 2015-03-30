@@ -45,13 +45,14 @@ double sqrt(double num){
 
 double root(double num, int exp){
 	int temp = abs(exp);
-	double x, precision = 5;
+	double x, precision = 100;
 	x = (numDigits(num) == 1) ? 1 : pow(10, numDigits(num)-2);
 
-	if(!x) return 0;
+	if(!num) return 0;
 
-	while( precision--)
-		x = x - ((pow(x, exp) - num) / pow((exp * x), exp - 1));
+	while( precision--){
+		x = x - ((pow(x, exp) - num) / ( exp * pow(x, exp - 1)));
+	}
 
 	return x;
 }
@@ -94,13 +95,13 @@ void vsMult( vec3_t c, const vec3_t a, double b ){
 void vsAdd( vec3_t c, const vec3_t a, double b ){
 	c[0] = a[0] + b;
 	c[1] = a[1] + b;
-	c[2] + a[2] + b;
+	c[2] = a[2] + b;
 }
 
 void unitVec( vec3_t c, const vec3_t a ){
-	vec3_t temp;
+	double temp;
 	
-	magnitude(temp);
+	temp = magnitude(c);
 	
 	c[0] = (c[0] / temp );
 	c[1] = (c[1] / temp );	
