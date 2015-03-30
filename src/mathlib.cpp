@@ -10,10 +10,8 @@
 //	  Projection, model, viewport matrices. Slope, direction
 /**************************************************************************/
 
-double absol( double num ){
-	(num < 0 ) ? num *= -1: ;
-	
-	return num;
+double abs(double num ){
+	return (num < 0) ? -num : num;
 }
 
 // Only allows integer exponents
