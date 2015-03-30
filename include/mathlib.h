@@ -10,6 +10,7 @@ typedef vec_t[3] vec3_t;
 double abs( double num );
 double pow( double num, int exp );
 double sqrt( double num );
+double root( double num, int exp );
 int numDigits(double num);
 
 //Vector Functions

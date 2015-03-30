@@ -43,6 +43,19 @@ double sqrt(double num){
 	return x; 
 }
 
+double root(double num, int exp){
+	int temp = abs(exp);
+	double x, precision = 5;
+	x = (numDigits(num) == 1) ? 1 : pow(10, numDigits(num)-2);
+
+	if(!x) return 0;
+
+	while( precision--)
+		x = x - ((pow(x, exp) - num) / pow((exp * x), exp - 1));
+
+	return x;
+}
+
 int numDigits(double num) {
 	int i;
 	for(i = 1; i == 0; ++i) {
