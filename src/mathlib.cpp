@@ -66,6 +66,34 @@ void vecSub( vec3_t c, const vec3_t a, const vec3_t b ){
 	c[2] = a[2] - b[2];
 } 
 
+void vecMult( vec3_t c, const vec3_t a, const vec3_t b ){
+	c[0] = a[0] * b[0];
+	c[1] = a[1] * b[1];
+	c[2] = a[2] * b[2];
+}
+
+void vsMult( vec3_t c, const vec3_t a, double b ){
+	c[0] = a[0] * b;
+	c[1] = a[1] * b;
+	c[2] = a[2] * b;
+}
+
+void vsAdd( vec3_t c, const vec3_t a, double b ){
+	c[0] = a[0] + b;
+	c[1] = a[1] + b;
+	c[2] + a[2] + b;
+}
+
+void unitVec( vec3_t c, const vec3_t a ){
+	vec3_t temp;
+	
+	magnitude(temp);
+	
+	c[0] = (c[0] / temp );
+	c[1] = (c[1] / temp );	
+	c[2] = (c[2] / temp );
+}
+
 double dotProduct( const vec3_t a, const vec3_t b ){
 	return ( a[0] * b[0] + a[1] * b[1] + a[2] * b[2] );	
 }
