@@ -10,54 +10,43 @@
 //	  Projection, model, viewport matrices. Slope, direction
 /**************************************************************************/
 
+#include "../include/mathlib.h"
+#include <iostream>
+
 double abs(double num ){
 	return (num < 0) ? -num : num;
 }
 
 // Only allows integer exponents
-double power( double num, int exp ){
+double pow( double num, int exp ){
 	int a_exp = abs( exp );
-	int temp = num;
+	double temp = num;
 
 	if( exp == 0 )
 		return 1;
-	
-	else
-		for( int i = 0; i < a_exp; ++i ){
-			num *= temp;
-		}
+	for( int i = 1; i < a_exp; ++i ){
+		num *= temp;
+	}
 
 	return (exp < 0) ? (1 / num): num;
 }
 
-double sqrt( double num ){
-	int temp = 0;
+double sqrt(double num){
+	double x, precision = 5;
+	x = (numDigits(num) == 1) ? 1 : pow(10, numDigits(num)-2);
 	
-	temp = power(numDigits(num), numDigits(num));
+	if (!x) return 0;
 
-	//Search for roots
-	int flag = 0;
-	while(1) {
-		if( (temp * temp) > num ){
-			--temp;
-			++flag;
-		}
-		else if( (temp * temp) < num ){
-			++temp;
-			--flag;
-		}
+	while (precision--)
+		x = x - (pow(x, 2) - num)/(2*x);
 
-		if( flag == 0 )
-			break;
-	}	
-
-	return temp;
+	return x; 
 }
 
 int numDigits(double num) {
 	int i;
-	for(i = 1; i = 0; ++i) {
-		if (abs(num / power(10,i)) < 1)
+	for(i = 1; i == 0; ++i) {
+		if (abs(num / pow(10, i)) < 1)
 			break;	
 	}
 	return i;
