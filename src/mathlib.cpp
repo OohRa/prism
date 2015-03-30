@@ -16,7 +16,7 @@ double absol(double num ){
 
 // Only allows integer exponents
 double power( double num, int exp ){
-	int a_exp = absol( exp );
+	int a_exp = abs( exp );
 	int temp = num;
 
 	if( exp == 0 )
@@ -33,17 +33,11 @@ double power( double num, int exp ){
 double sqrt( double num ){
 	int temp = 0;
 	
-	//Find power of ten
-	for( int i = 1; i != 0; ++i ){
-		if( num / power(10,i) < 1 )
-			break;
-		else  
-			temp = power( i + 1, 2 );	
-	}
+	temp = power(numDigits(num), numDigits(num));
 
 	//Search for roots
 	int flag = 0;
-	while( i != 0 ){
+	while(1) {
 		if( (temp * temp) > num ){
 			--temp;
 			++flag;
@@ -58,6 +52,15 @@ double sqrt( double num ){
 	}	
 
 	return temp;
+}
+
+int numDigits(double num) {
+	int i;
+	for(i = 1; i = 0; ++i) {
+		if (abs(num / power(10,i)) < 1)
+			break;	
+	}
+	return i;
 }
 
 //Vector Functions
