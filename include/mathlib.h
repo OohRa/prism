@@ -13,6 +13,11 @@ double sqrt( double num );
 double root( double num, int exp );
 int numDigits(double num);
 
+//Trig functions, using degrees
+double sin(double num);
+double cos(double num);
+double tan(double num);
+
 //Vector Functions
 void vecAdd( vec3_t c, const vec3_t a, const vec3_t b );
 void vecSub( vec3_t c, const vec3_t a, const vec3_t b );

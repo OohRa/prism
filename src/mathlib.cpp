@@ -66,6 +66,30 @@ int numDigits(double num) {
 	return i;
 }
 
+//Trig functions, using degrees
+
+double sin(double num) {
+	//Reduce angle
+	while (abs(num) >= 360) {
+		(num < 0) ? num += 360 : num -= 360;
+	}
+	//Convert to rads
+	num *= PI/180;
+
+	double ans;
+	ans = num - (num*num*num)/6 + (num*num*num*num*num)/120 - 
+	      (num*num*num*num*num*num*num)/5040;
+	return ans;
+}
+
+double cos(double num) {
+	return sin(90 - num);
+}
+
+double tan(double num) {
+	return sin(num)/cos(num);
+}
+
 //Vector Functions
 void vecAdd( vec3_t c, const vec3_t a, const vec3_t b ){
 	c[0] = a[0] + b[0];
